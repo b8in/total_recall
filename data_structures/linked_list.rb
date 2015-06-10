@@ -27,25 +27,20 @@ class LinkedList
     raise "method is not implemented now"
   end
 
-  def to_s
+  def to_s(separator=', ')
     buffer = []
-    el = @head
-    while !el.nil?
-      buffer << el.to_s
-      el = el.next
+    each_node do |node|
+      buffer << node.to_s
     end
-    "[#{buffer.join(', ')}]"
+    "[#{buffer.join(separator)}]"
   end
 
   def inspect
     buffer = []
-    el = @head
-    while !el.nil?
-      buffer << el.inspect
-      el = el.next
+    each_node do |node|
+      buffer << node.inspect
     end
-    "LinkedList: ##{object_id} [\n#{buffer.join(",\n")}]"
-
+    "LinkedList ##{object_id} [\n#{buffer.join(",\n")}]"
   end
 
   private
@@ -53,5 +48,17 @@ class LinkedList
   def normalize(value)
     return nil if value.nil?
     value.is_a?(Node) ? value : Node.new(value)
+  end
+
+  def each_node
+    if block_given?
+      current = @head
+      until current.nil?
+        yield current
+        current = current.next
+      end
+    else
+      raise "Method each_node needs a block"
+    end
   end
 end

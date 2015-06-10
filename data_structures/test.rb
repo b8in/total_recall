@@ -1,7 +1,7 @@
 require_relative 'node'
 require_relative 'linked_list'
 
-puts "start test ->"
+puts "\n<- start test ->"
 ll = LinkedList.new
 ll.add nil
 ll.add nil
@@ -15,4 +15,4 @@ ll.add nil
 puts ll
 p ll
 
-puts "-> finish test "
+puts "<- finish test ->\n "
