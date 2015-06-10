@@ -12,6 +12,11 @@ ll.add 56
 ll.add nil
 ll.add nil
 ll.add nil
+ll.add "333333"
+ll.add 1111
+ll.add "$$$", 1
+ll.add "@@@@@", 3
+ll.add "% % %", 1000
 puts ll
 p ll
 

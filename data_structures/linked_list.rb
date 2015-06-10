@@ -10,17 +10,26 @@ class LinkedList
     @head.nil?
   end
 
-  def add(value)
+  def insert(value, index=Float::INFINITY)
     el = normalize(value)
-    if empty?
-      @head = el
-    else
-      tail = @head
-      while tail.next
-        tail = tail.next
+    unless el.nil?
+      if empty?
+        @head = el
+      elsif index==0
+        el.next = @head
+        @head = el
+      else
+        current = @head
+        i = 1
+        while current.next && i < index
+          current = current.next
+          i += 1
+        end
+        el.next = current.next #unless current.next.nil?
+        current.next = el
       end
-      tail.next = el
     end
+    self
   end
 
   def remove
