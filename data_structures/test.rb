@@ -1,7 +1,26 @@
 require_relative 'node'
+require_relative 'stack'
 require_relative 'linked_list'
 
 puts "\n<- start test ->"
+
+puts "**** begin Stack section ****"
+stack = Stack.new
+stack.push("one")
+stack.push(nil)
+stack.push("two")
+stack.push("three")
+puts stack
+puts "pop result = #{stack.pop}"
+puts "pop result = #{stack.pop}"
+puts stack
+stack.push("four")
+stack.push("five")
+puts stack
+puts "pop result = #{stack.pop}"
+p stack
+puts "**** end Stack section ****\n "
+
 ll = LinkedList.new
 ll.add nil
 ll.add nil
