@@ -14,14 +14,14 @@ class Node
   end
 
   def inspect
-    "Node ##{object_id}: {value: #{@value}, next: #{or_nil(@next)}, prev: #{or_nil(@prev)}}"
+    "Node ##{object_id}: {value: #{@value}, next: #{oid_or_nil(@next)}, prev: #{oid_or_nil(@prev)}}"
   end
 
   private
 
-  #print value or 'nil'
-  def or_nil(value)
-    "#{value || 'nil'}"
+  #return short nice description of node
+  def oid_or_nil(node)
+    node.nil? ? "nil" : "<#{node.class.to_s} ##{node.object_id}>"
   end
 
 end
