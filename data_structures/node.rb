@@ -4,6 +4,11 @@ class Node
   attr_accessor :next
   attr_accessor :prev
 
+  def self.normalize(value)
+    return nil if value.nil?
+    value.is_a?(Node) ? value : Node.new(value)
+  end
+
   def initialize(value)
     raise ArgumentError, "Node value can't be nil" if value.nil?
     @value = value

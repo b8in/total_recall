@@ -3,7 +3,7 @@ require_relative 'node'
 class LinkedList
 
   def initialize(value=nil)
-    @head = normalize(value)
+    @head = Node.normalize(value)
   end
 
   def empty?
@@ -11,7 +11,7 @@ class LinkedList
   end
 
   def insert(value, index=Float::INFINITY)
-    el = normalize(value)
+    el = Node.normalize(value)
     unless el.nil?
       if empty?
         @head = el
@@ -68,11 +68,6 @@ class LinkedList
   end
 
   private
-
-  def normalize(value)
-    return nil if value.nil?
-    value.is_a?(Node) ? value : Node.new(value)
-  end
 
   def each_node
     if block_given?
