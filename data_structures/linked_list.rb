@@ -32,6 +32,8 @@ class LinkedList
     self
   end
 
+  alias_method :add, :insert
+
   def remove
     raise "method is not implemented now"
   end
