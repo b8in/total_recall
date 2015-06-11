@@ -25,7 +25,7 @@ class LinkedList
           current = current.next
           i += 1
         end
-        el.next = current.next #unless current.next.nil?
+        el.next = current.next
         current.next = el
       end
     end
@@ -35,7 +35,20 @@ class LinkedList
   alias_method :add, :insert
 
   def remove
-    raise "method is not implemented now"
+    if empty?
+      result = nil
+    elsif @head.next.nil?
+      result = @head
+      @head = nil
+    else
+      current = @head
+      while current.next && current.next.next
+        current = current.next
+      end
+      result = current.next
+      current.next = result.next
+    end
+    result
   end
 
   def to_s(separator=', ')

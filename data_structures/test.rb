@@ -17,6 +17,13 @@ ll.add 1111
 ll.add "$$$", 1
 ll.add "@@@@@", 3
 ll.add "% % %", 1000
+
+puts ll
+puts "removed node = #{ll.remove}"
+puts ll
+puts "removed node = #{ll.remove}"
+puts ll
+ll.add(777)
 puts ll
 p ll
 
