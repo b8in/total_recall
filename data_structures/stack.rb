@@ -24,4 +24,8 @@ class Stack
     node
   end
 
+  def peek
+    !@head.nil? && @head.respond_to?(:value) ? @head.value : nil
+  end
+
 end

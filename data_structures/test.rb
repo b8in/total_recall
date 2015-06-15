@@ -6,11 +6,14 @@ puts "\n<- start test ->"
 
 puts "**** begin Stack section ****"
 stack = Stack.new
+puts "peek result = #{stack.peek.inspect}"
 stack.push("one")
 stack.push(nil)
 stack.push("two")
 stack.push("three")
 puts stack
+puts "peek result = #{stack.peek}"
+puts "peek result = #{stack.peek}"
 puts "pop result = #{stack.pop}"
 puts "pop result = #{stack.pop}"
 puts stack
