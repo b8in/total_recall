@@ -1,7 +1,7 @@
 module ListBase
 
   def empty?
-    @head.nil?
+    starting_node.nil?
   end
 
   def size
