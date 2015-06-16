@@ -4,6 +4,15 @@ module ListBase
     @head.nil?
   end
 
+  def size
+    length = 0
+    each_node do |node|
+      length += 1
+    end
+    length
+  end
+  alias_method :length, :size
+
   def starting_node
     raise NotImplementedError, "You must implement method 'starting_node' in #{self.class.name} class"
   end
