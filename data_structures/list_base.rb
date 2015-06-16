@@ -13,6 +13,21 @@ module ListBase
   end
   alias_method :length, :size
 
+  # how many times should execute 'pop' before starting_node value is equal argument
+  # if starting_node.value == value then return 0
+  def index_of(value)
+    index = 0
+    each_node do |node|
+      return index if node.value == value
+      index += 1
+    end
+    -1
+  end
+
+  def include?(value)
+    index_of(value) < 0 ? false : true
+  end
+
   def starting_node
     raise NotImplementedError, "You must implement method 'starting_node' in #{self.class.name} class"
   end
