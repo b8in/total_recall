@@ -4,6 +4,10 @@ module ListBase
     @head.nil?
   end
 
+  def starting_node
+    raise NotImplementedError, "You must implement method 'starting_node' in #{self.class.name} class"
+  end
+
   def to_s(separator=', ')
     buffer = []
     each_node do |node|
@@ -24,7 +28,7 @@ module ListBase
 
   def each_node
     if block_given?
-      current = @head
+      current = starting_node
       until current.nil?
         yield current
         current = current.next
