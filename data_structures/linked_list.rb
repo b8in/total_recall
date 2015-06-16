@@ -9,6 +9,10 @@ class LinkedList
     @head = Node.normalize(value)
   end
 
+  def starting_node
+    @head
+  end
+
   def insert(value, index=Float::INFINITY)
     el = Node.normalize(value)
     unless el.nil?

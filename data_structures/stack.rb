@@ -9,6 +9,10 @@ class Stack
     @head = Node.normalize(value)
   end
 
+  def starting_node
+    @head
+  end
+
   def push(value)
     node = Node.normalize(value)
     unless node.nil?
