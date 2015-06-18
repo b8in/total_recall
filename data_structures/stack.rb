@@ -13,10 +13,14 @@ class Stack
     @head
   end
 
+  def next_node_for(node)
+    node.prev
+  end
+
   def push(value)
     node = Node.normalize(value)
     unless node.nil?
-      node.next = @head unless empty?
+      node.prev = @head unless empty?
       @head = node
     end
     self
@@ -24,7 +28,7 @@ class Stack
 
   def pop
     node = @head
-    @head = @head.next.nil? ? nil : node.next
+    @head = @head.prev.nil? ? nil : node.prev
     node
   end
 

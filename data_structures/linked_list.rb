@@ -13,6 +13,10 @@ class LinkedList
     @head
   end
 
+  def next_node_for(node)
+    node.next
+  end
+
   def insert(value, index=Float::INFINITY)
     el = Node.normalize(value)
     unless el.nil?
