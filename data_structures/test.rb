@@ -29,6 +29,11 @@ puts "index of '**' #{stack.index_of("**")}"
 puts "index of 'five' #{stack.index_of("five")}"
 puts "pop result = #{stack.pop}"
 p stack
+puts "empty? #{stack.empty?}"
+puts "run empty!"
+stack.empty!
+puts "empty? #{stack.empty?}"
+puts "size = #{stack.size}"
 puts "**** end Stack section ****\n "
 
 ll = LinkedList.new

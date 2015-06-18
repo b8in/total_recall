@@ -17,6 +17,10 @@ class Stack
     node.prev
   end
 
+  def empty!
+    @head = nil
+  end
+
   def push(value)
     node = Node.normalize(value)
     unless node.nil?
