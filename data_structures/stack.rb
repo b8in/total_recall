@@ -19,6 +19,7 @@ class Stack
 
   def empty!
     @head = nil
+    self
   end
 
   def push(value)
