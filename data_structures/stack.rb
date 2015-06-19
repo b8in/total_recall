@@ -33,8 +33,8 @@ class Stack
 
   def pop
     node = @head
-    @head = @head.prev.nil? ? nil : node.prev
-    node
+    @head = @head.prev unless @head.nil?
+    node.nil? ? nil : node.value
   end
 
   def peek
