@@ -1,38 +1,12 @@
 require_relative '../../data_structures/stack'
+require_relative 'list_base_spec'
 
 RSpec.describe Stack do
+  include_examples "ListBase module", Stack.new("one").push("two").push("three")
 
   let(:stack) { Stack.new("value") }
   let(:populated_stack) { Stack.new("one").push("two").push("three") }
   let(:empty_stack) { Stack.new }
-
-  describe '.new' do
-    context "without arguments" do
-      it 'raises no errors' do
-        expect { Stack.new }.to_not raise_error
-      end
-
-      it 'creates empty stack' do
-        expect(Stack.new.empty?).to be true
-      end
-    end
-
-    context 'with one argument' do
-      it 'creates stack with one node' do
-        expect(stack.size).to eq 1
-      end
-
-      it 'takes a Node' do
-        expect { Stack.new(Node.new("element")) }.to_not raise_error
-        expect(Stack.new(Node.new("element")).peek).to eq "element"
-      end
-
-      it 'takes any object and wraps it in Node' do
-        expect { Stack.new("element") }.to_not raise_error
-        expect(Stack.new("element").starting_node).to be_a Node
-      end
-    end
-  end
 
   describe '#starting_node' do
     it 'returns @head' do
@@ -46,6 +20,16 @@ RSpec.describe Stack do
       old_head = populated_stack.starting_node
       populated_stack.push(new_node)
       expect(populated_stack.next_node_for(populated_stack.starting_node)).to eq old_head
+    end
+  end
+
+  describe "#index_of" do
+    it "returns 0 for head element of stack" do
+      expect(populated_stack.index_of("three")).to eq 0
+    end
+
+    it "returns 2 for third element of stack" do
+      expect(populated_stack.index_of("one")).to eq 2
     end
   end
 
