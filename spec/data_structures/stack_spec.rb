@@ -71,7 +71,39 @@ RSpec.describe Stack do
   end
 
   describe "#pop" do
-    pending " -- "
+    context "when stack is empty" do
+      it "returns nil" do
+        expect(empty_stack.pop).to be_nil
+      end
+    end
+
+    context "when stack has only one node" do
+      it "returns value of head node" do
+        expect(stack.pop).to eq("value")
+      end
+
+      it "stack becomes empty" do
+        stack.pop
+        expect(stack.empty?).to be true
+      end
+    end
+
+    context "when stake has many nodes" do
+      it "returns value of head node" do
+        expect(populated_stack.pop).to eq("three")
+      end
+
+      it "head becomes previous node" do
+        populated_stack.pop
+        expect(populated_stack.peek).to eq "two"
+      end
+
+      it "stack size decreases by 1" do
+        old_size = populated_stack.size
+        populated_stack.pop
+        expect(populated_stack.size).to eq(old_size-1)
+      end
+    end
   end
 
   describe "#push" do
