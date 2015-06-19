@@ -88,7 +88,7 @@ RSpec.describe Stack do
       end
     end
 
-    context "when stake has many nodes" do
+    context "when stack has many nodes" do
       it "returns value of head node" do
         expect(populated_stack.pop).to eq("three")
       end
@@ -107,7 +107,23 @@ RSpec.describe Stack do
   end
 
   describe "#push" do
-    pending " -- "
+    context "when stack isn't empty" do
+      it "new head node has link on previous node" do
+        stack.push("new")
+        expect(stack.starting_node.prev.value).to eq "value"
+      end
+    end
+
+    it "stack size increase by 1" do
+      old_size = stack.size
+      stack.push("new")
+      expect(stack.size).to eq(old_size+1)
+    end
+
+    it "new node becomes the head" do
+      stack.push("new")
+      expect(stack.peek).to eq "new"
+    end
   end
 
   it 'instance has @head variable' do
