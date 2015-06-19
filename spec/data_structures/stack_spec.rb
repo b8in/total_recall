@@ -110,6 +110,14 @@ RSpec.describe Stack do
     end
   end
 
+  describe "#to_s" do
+    context "when instance has three elements: 'one', 'two', 'three'" do
+      it "returns false" do
+        expect(populated_stack.to_s).to eq("[three, two, one]")
+      end
+    end
+  end
+
   it 'instance has @head variable' do
     expect(stack.instance_variable_get("@head")).to_not be_nil
   end

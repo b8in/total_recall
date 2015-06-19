@@ -84,10 +84,24 @@ RSpec.shared_examples "ListBase module" do |populated_list|
     end
   end
 
-  xdescribe "#to_s" do
+  describe "#to_s" do
+    context "when instance is empty" do
+      it "returns []" do
+        expect(empty_list.to_s).to eq("[]")
+      end
+    end
+
+    context "when size=3 and use custom separator '-'" do
+      it "result contains '-' twice" do
+        expect(populated_list.to_s('-')).to match(/\A\[[a-z]+\-[a-z]+\-[a-z]+\]\z/)
+      end
+    end
   end
 
-  xdescribe "#inspect" do
+  describe "#inspect" do
+    it "result starts with '#{described_class}'" do
+      expect(empty_list.inspect).to start_with("#{described_class}")
+    end
   end
 
 end

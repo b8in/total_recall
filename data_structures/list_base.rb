@@ -49,7 +49,7 @@ module ListBase
     each_node do |node|
       buffer << node.inspect
     end
-    "#{self.class.name} ##{object_id} [\n#{buffer.join(",\n")}]"
+    "#{self.class.name} ##{object_id} [\n  #{buffer.join(",\n  ")}]"
   end
 
   private
